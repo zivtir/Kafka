@@ -13,13 +13,13 @@ async function run(){
         console.log("Connecting...");
         await admin.connect();
         console.log("Connected");
-        await admin.createTopics({
+        const result = await admin.createTopics({
             "topics":[{
-                "topic":"users",
+                "topic":"myusers",
                 "numPartitions": 2
             }]
         })
-        console.log("Created Successfully ")
+        console.log("Created Successfully " + JSON.stringify(result))
         await admin.disconnect();
 
     } catch (ex) {
